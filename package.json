@@ -1,0 +1,18 @@
+{
+  "name": "url_shortner_node",
+  "version": "1.0.0",
+  "description": "url shortener using nodejs and express",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon index.js"
+  },
+  "author": "smit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.6.0",
+    "nodemon": "^3.1.4",
+    "shortid": "^2.2.16"
+  }
+}
