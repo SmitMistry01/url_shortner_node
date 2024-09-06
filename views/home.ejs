@@ -9,7 +9,7 @@
     <h1>Url Shortner</h1>
     <!-- we use locals when data is coming from backend -->
     <% if(locals.id){ %>
-    <p>Url Generated : http://localhost:8080/<%= id %></p>
+    <p>Url Generated : http://localhost:8080/url/<%= id %></p>
     <%} %>
     <div class="form">
       <form method="POST" action="/url">
