@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url Shortner</title>
+  </head>
+  <body>
+    <h1>Url Shortner</h1>
+    <!-- we use locals when data is coming from backend -->
+    <% if(locals.id){ %>
+    <p>Url Generated : http://localhost:8080/<%= id %></p>
+    <%} %>
+    <div class="form">
+      <form method="POST" action="/url">
+        <label>Enter the URL you want to short : </label>
+        <input type="text" name="url" placeholder="https://example.com" />
+        <br />
+        <button type="submit" class="btn">Generate</button>
+      </form>
+    </div>
+    <div class="table">
+        <% if(locals.urls) {%>
+
+            <table>
+                <thead>
+                    <th>Sr.no</th>
+                    <th>ShortId</th>
+                    <th>Redirects</th>
+                </thead>
+                <tbody>
+                    <% urls.forEach(url => {%>
+                        <tr>
+                        <td> <%= url.shortId%></td>
+                        <td> <%= url.redirectUrl%></td>
+                        <td><%= url.visitHistory.length%></td>
+                        </tr>
+                    <%}); %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+  </body>
+</html>
