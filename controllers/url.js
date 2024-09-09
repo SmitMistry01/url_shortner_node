@@ -2,7 +2,7 @@ const shortid = require("shortid");
 const URL = require("../models/url.js");
 
 async function handleGenerateNewShortUrl(req, res) {
-  const { body } = req; // Use req.body to access the request body
+  const body = req.body;
   if (!body.url) {
     return res.status(400).json({ error: "url is required" });
   } else {
@@ -11,6 +11,7 @@ async function handleGenerateNewShortUrl(req, res) {
       shortId: shortID,
       redirectUrl: body.url,
       visitHistory: [],
+      createdBy:req.user._id,
     });
 
     return res.render("home", {
